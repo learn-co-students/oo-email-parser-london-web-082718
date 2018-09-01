@@ -5,4 +5,18 @@
 
 class EmailParser
 
+attr_accessor :parse, :emails
+
+def initialize(emails)
+  @emails = emails
+end
+
+def parse
+  split_emails = []
+  emails.split.map do |x|
+    split_emails << x.split(",")
+  end
+  split_emails.flatten.uniq
+end
+
 end
